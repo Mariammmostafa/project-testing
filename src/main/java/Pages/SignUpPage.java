@@ -48,16 +48,17 @@ public class SignUpPage {
     }
 
     public SignUpPage enterName(String name) {
-        ElementHelper.sendText(name,driver,signupName);
+        ElementHelper.sendText(name, driver, signupName);
         return this;
     }
 
     public SignUpPage enterEmail(String email) {
-        Global global=new Global();
+        Global global = new Global();
         global.setEmail();
-        driver.findElement(signupEmail).sendKeys(global.getEmail());
+        driver.findElement(signupEmail).sendKeys(email);
         return this;
     }
+
     public SignUpPage entertitle(String mr) {
         WebElement radio = driver.findElement(signUptitle); // ده لازم يكون نوعه radio
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", radio);
@@ -76,7 +77,7 @@ public class SignUpPage {
     }
 
     public SignUpPage enterPassword(String pass) {
-        ElementHelper.sendText(pass,driver,password);
+        ElementHelper.sendText(pass, driver, password);
         return this;
     }
 
@@ -116,42 +117,42 @@ public class SignUpPage {
     }
 
     public SignUpPage enterFirstName(String fName) {
-        ElementHelper.sendText(fName,driver,firstName);
+        ElementHelper.sendText(fName, driver, firstName);
         return this;
     }
 
     public SignUpPage enterLastName(String lName) {
-        ElementHelper.sendText(lName,driver,lastName);
+        ElementHelper.sendText(lName, driver, lastName);
         return this;
     }
 
     public SignUpPage enterCompany(String comp) {
-        ElementHelper.sendText(comp,driver,company);
+        ElementHelper.sendText(comp, driver, company);
         return this;
     }
 
     public SignUpPage enterAddress(String addr) {
-        ElementHelper.sendText(addr,driver,address);
+        ElementHelper.sendText(addr, driver, address);
         return this;
     }
 
     public SignUpPage enterState(String st) {
-        ElementHelper.sendText(st,driver,state);
+        ElementHelper.sendText(st, driver, state);
         return this;
     }
 
     public SignUpPage enterCity(String c) {
-        ElementHelper.sendText(c,driver,city);
+        ElementHelper.sendText(c, driver, city);
         return this;
     }
 
     public SignUpPage enterZipcode(String zip) {
-        ElementHelper.sendText(zip,driver,zipcode);
+        ElementHelper.sendText(zip, driver, zipcode);
         return this;
     }
 
     public SignUpPage enterMobileNumber(String mobile) {
-        ElementHelper.sendText(mobile,driver,mobileNumber);
+        ElementHelper.sendText(mobile, driver, mobileNumber);
         return this;
     }
 

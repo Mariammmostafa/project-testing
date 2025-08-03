@@ -23,11 +23,12 @@ public class HomePage {
         driver.findElement(signup_Login).click();
     }
 
-public void ClickOnContactUs()
-{driver.findElement(Contact_UsBtn).click();}
+    public void ClickOnContactUs() {
+        driver.findElement(Contact_UsBtn).click();
+    }
 
     public void clickOnProductsLink() {
-       driver.findElement(Product_page).click();
+        driver.findElement(Product_page).click();
     }
 
 }

@@ -1,6 +1,7 @@
 
 import Pages.HomePage;
 import Pages.SignUpPage;
+import Utelities.CVSReader;
 import Utelities.DriverManger;
 import Utelities.Global;
 
@@ -17,8 +18,6 @@ import org.testng.annotations.*;
 import java.time.Duration;
 
 
-
-
 public class SignUp {
 
     WebDriverWait wait;
@@ -26,16 +25,16 @@ public class SignUp {
     SignUpPage signUpPage;
     Global global;
     WebDriverWait webDriverWait;
+    CVSReader cvsReader;
 
     @BeforeMethod
     public void setup() {
         homePage = new HomePage();
         signUpPage = new SignUpPage();
-        global = new Global();
+//        global = new Global();
+        cvsReader = new CVSReader();
 
         WebDriver driver = DriverManger.getDriver();
-
-
 
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -46,48 +45,32 @@ public class SignUp {
             System.out.println("الإعلان لم يظهر أو اختفى بسرعة.");
         }
     }
-    @Test(dataProvider = "userData", dataProviderClass = TestDataProvider.class)
+
+    @Test()
 
     public void signUp(
-            String name,
-            String email,
-            String password,
-            String day,
-            String month,
-            String year,
-            String firstName,
-            String lastName,
-            String address,
-            String country,
-            String state,
-            String city,
-            String zipcode,
-            String mobile
     ) {
 
 
         homePage.clickOnsignup_LoginBtn();
-        signUpPage.enterName(name).
-                enterEmail(email).
-
-
+        signUpPage.enterName(cvsReader.getUser().getName()).
+                enterEmail(cvsReader.getUser().getEmail()).
                 clickSignupButton().
-                enterPassword(password).
+                enterPassword(cvsReader.getUser().getPassword()).
                 entertitle("Mrs").
-
-                daysSelect(day).
-                monthSelect(month).
-                yearsSelect(year).
+                daysSelect(cvsReader.getUser().getDay()).
+                monthSelect(cvsReader.getUser().getMonth()).
+                yearsSelect(cvsReader.getUser().getYear()).
                 checkNewsletter().
                 clickSpecialoffer().
-                enterFirstName(firstName).
-                enterLastName(lastName).
-                enterAddress(address).
-                selectCountry(country).
-                enterState(state).
-                enterCity(city).
-                enterZipcode(zipcode).
-                enterMobileNumber(mobile).
+                enterFirstName(cvsReader.getUser().getFirstName()).
+                enterLastName(cvsReader.getUser().getLastName()).
+                enterAddress(cvsReader.getUser().getAddress()).
+                selectCountry(cvsReader.getUser().getCountry()).
+                enterState(cvsReader.getUser().getState()).
+                enterCity(cvsReader.getUser().getCity()).
+                enterZipcode(cvsReader.getUser().getZipcode()).
+                enterMobileNumber(cvsReader.getUser().getMobileNumber()).
                 clickCreateAccountButton();
 
 //@Test
