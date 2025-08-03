@@ -104,7 +104,7 @@ public class Main {
         WebElement SignUp_Create= driver.findElement(By.xpath("//button[text()='Create Account']"));
         SignUp_Create.click();
 
-// ⏳ انتظر تحميل الصفحة الرئيسية بعد إنشاء الحساب
+
 
 
 

@@ -4,9 +4,6 @@ import com.github.javafaker.Faker;
 import java.util.Random;
 
 
-import org.apache.commons.lang3.RandomStringUtils;
-
-import java.util.Random;
 
 public class RandomSource {
     public static String generateRandomPassword() {

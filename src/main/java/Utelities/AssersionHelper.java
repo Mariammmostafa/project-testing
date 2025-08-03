@@ -9,13 +9,11 @@ public class AssersionHelper
 
 
       }
-                  // تأكد إن القيمة صحيحة (true)
                   public void assertTrue(boolean condition) {
-                        Assert.assertTrue(condition, "❌ Condition was expected to be true, but it was false.");
+                        Assert.assertTrue(condition, "Condition was expected to be true, but it was false.");
                   }
 
-                  // تأكد إن القيمة خاطئة (false)
                   public void assertFalse(boolean condition) {
-                        Assert.assertFalse(condition, "❌ Condition was expected to be false, but it was true.");
+                        Assert.assertFalse(condition, " Condition was expected to be false, but it was true.");
                   }
             }
