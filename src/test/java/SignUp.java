@@ -29,7 +29,9 @@ public class SignUp {
 
     @BeforeMethod
     public void setup() {
-        homePage = new HomePage();
+        homePage = new HomePage(
+                DriverManger.getDriver()
+        );
         signUpPage = new SignUpPage();
 //        global = new Global();
         cvsReader = new CVSReader();
