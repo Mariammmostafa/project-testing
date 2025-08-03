@@ -33,6 +33,9 @@ public class ProductPage {
     By successMessage = By.cssSelector(".alert-success");
     By CartView = By.cssSelector("a[href='/view_cart']");
 
+    public ProductPage(WebDriver driver) {
+    }
+
 
     public void setQuantity(int qty) {
 

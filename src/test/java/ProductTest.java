@@ -1,10 +1,7 @@
 import Pages.HomePage;
 import Pages.ProductPage;
 import Utelities.DriverManger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -23,8 +20,8 @@ public class ProductTest extends BaseTest {
     @BeforeMethod
     public void setup() {
         WebDriver driver = DriverManger.getDriver();
-        homePage = new HomePage();
-        productPage = new ProductPage();
+        homePage = new HomePage(driver);
+        productPage = new ProductPage(driver);
         homePage.clickOnProductsLink();
     }
 

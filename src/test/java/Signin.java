@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 
 
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,8 +14,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
-import static java.util.logging.Logger.global;
 
 
 public class Signin extends BaseTest {
@@ -28,7 +25,7 @@ public class Signin extends BaseTest {
     @BeforeTest
     public void setup() {
         WebDriver driver = DriverManger.getDriver();
-        homePage = new HomePage();
+        homePage = new HomePage(driver);
         signInPage = new SignInPage();
 
         // صح: استخدمي الـ singleton من Global

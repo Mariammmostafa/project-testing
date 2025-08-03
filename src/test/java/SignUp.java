@@ -16,7 +16,7 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
-
+import static Utelities.DriverManger.driver;
 
 
 public class SignUp {
@@ -29,7 +29,7 @@ public class SignUp {
 
     @BeforeMethod
     public void setup() {
-        homePage = new HomePage();
+        homePage = new HomePage(driver);
         signUpPage = new SignUpPage();
         global = new Global();
 
