@@ -4,18 +4,15 @@ import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
-@BeforeTest
+    @BeforeTest
     public void init() {
-    DriverManger.initiation();
-}
+        DriverManger.initiation();
+    }
 
 
+    @AfterTest
+    public void tearDown() {
+        DriverManger.closeDriver();
 
-
-
-@AfterTest
-    public  void tearDown(){
-    DriverManger.closeDriver();
-
-}
+    }
 }
