@@ -1,5 +1,5 @@
 package Utelities;
-//name,email,password,day,month,year,firstName,lastName,address,country,state,city,zipcode,mobile
+
 
 public class SignUpData {
     private String name;

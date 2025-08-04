@@ -22,11 +22,13 @@ public class contactUs {
 
     @BeforeMethod
     public void setup() {
-        driver = DriverManger.getDriver();  // عدل هنا
+        driver = DriverManger.getDriver();
         homePage = new HomePage(driver);
     }
+    @Test(dependsOnMethods = {"testUserCanCheckout"})
 
-    @Test
+
+
     void testClickContactUs() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
@@ -40,10 +42,6 @@ public class contactUs {
         contact.enterSubject("..");
         contact.enterMessage("..");
         contact.enterSubmit();
-
-        // صحح الـ CSS Selector هنا:
-       // wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert-success")));
-     //   WebElement successMsg = driver.findElement(By.cssSelector(".alert-success"));
 
     }
 }

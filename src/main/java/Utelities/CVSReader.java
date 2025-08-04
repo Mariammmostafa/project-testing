@@ -18,14 +18,14 @@ public class CVSReader {
 
         File file = new File(filePath);
         if (!file.exists()) {
-            System.err.println("❌ File not found: " + filePath);
+            System.err.println(" File not found: " + filePath);
             return;
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String headerLine = br.readLine(); // Skip the header
             if (headerLine == null) {
-                System.err.println("❌ File is empty.");
+                System.err.println(" File is empty.");
                 return;
             }
 
@@ -37,7 +37,7 @@ public class CVSReader {
                 String[] values = line.split(",", -1);
 
                 if (values.length != headers.length) {
-                    System.err.println("⚠️ Skipping malformed line: " + line);
+                    System.err.println("⚠ Skipping malformed line: " + line);
                     continue;
                 }
 
@@ -45,11 +45,11 @@ public class CVSReader {
                 users.add(user);
 
                 // Optional debug print
-                System.out.println("✅ Loaded User: " + user.getName() + " | " + user.getEmail());
+                System.out.println(" Loaded User: " + user.getName() + " | " + user.getEmail());
             }
 
         } catch (IOException e) {
-            System.err.println("❌ Error reading file: " + e.getMessage());
+            System.err.println(" Error reading file: " + e.getMessage());
             e.printStackTrace();
         }
     }
