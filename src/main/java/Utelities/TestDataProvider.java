@@ -13,12 +13,12 @@ public class TestDataProvider {
 
     @DataProvider(name = "userData")
     public static Object[][] readCsv() throws IOException {
-        String path = "src/test/resources/cvsData"; // عدّل المسار حسب مكان الملف عندك
+        String path = "src/test/resources/cvsData";
         List<Object[]> records = new ArrayList<>();
 
         BufferedReader br = new BufferedReader(new FileReader(path));
         String line;
-        br.readLine(); // عشان تتخطى رأس العمود (header)
+        br.readLine();
 
         while ((line = br.readLine()) != null) {
             String[] fields = line.split(",");

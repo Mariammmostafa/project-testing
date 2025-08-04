@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 import java.util.List;
 
-import static Utelities.DriverManger.driver;
 
 public class ElementHelper {
     private static final int waitingTime = 30;

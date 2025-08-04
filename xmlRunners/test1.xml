@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="test1">
-    <test name="Pages.SignInPage/SignUpPage">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+    <test name="FullFlowTest">
         <classes>
-            <class name="SignUp">
-                <methods>
-                    <include name="Pages.SignUpPage">
-
-                    </include>
-                </methods>
-
-            </class>
+            <class name="Signin"/>
+            <class name="ProductTest"/>
+            <class name="checkoutTest"/>
+            <class name="LogoutTest"/>  <!-- هنا ضفت LogoutTest -->
         </classes>
     </test>
-
-
-    
 </suite>

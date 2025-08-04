@@ -71,9 +71,16 @@ public class ProductPage {
 
     // Actions
     public void searchForProduct(String keyword) {
-        driver.findElement(searchField).sendKeys(keyword);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        WebElement search = wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
+
+        search.clear();
+        search.sendKeys(keyword);
+
         driver.findElement(searchButton).click();
     }
+
 
     public int getNumberOfProducts() {
         return driver.findElements(productItems).size();
@@ -82,20 +89,20 @@ public class ProductPage {
     public void closeAdIframeIfPresent() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         try {
-            // الانتقال لإطار الإعلان
+
             wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.id("aswift_1")));
 
-            // البحث عن زر الإغلاق (غير السلكتور حسب الصفحة)
+
             WebElement closeBtn = driver.findElement(By.cssSelector("button.close"));
 
             closeBtn.click();
 
-            // العودة للصفحة الرئيسية
+
             driver.switchTo().defaultContent();
 
             System.out.println("Ad iframe closed successfully.");
         } catch (TimeoutException | NoSuchElementException e) {
-            // في حالة عدم وجود iframe أو زر الإغلاق
+
             driver.switchTo().defaultContent();
             System.out.println("No ad iframe or close button found.");
         }
@@ -118,11 +125,8 @@ public class ProductPage {
         WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(addToCartButton));
         addButton.click();
 
-        // انتظار ظهور المودال (مثلاً)
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("cartModal")));
 
-        // انتظار ظهور رسالة النجاح داخل المودال
-      //  wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage));
     }
 
 
@@ -131,12 +135,12 @@ public class ProductPage {
             String badgeText = driver.findElement(By.cssSelector("a[href='/view_cart'] .badge")).getText();
             return Integer.parseInt(badgeText.trim());
         } catch (NoSuchElementException e) {
-            return 0; // لو
+            return 0;
         }
     }
 
     public String getProductName() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         WebElement productNameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(productName));
         return productNameElement.getText();
     }

@@ -1,13 +1,11 @@
 package Utelities;
 
-import Utelities.RandomSource;
 
 public class Global {
     private static Global instance; private String password;
     private String name; private String mobileNumber;
     private String email; private String nid;
 
-    // Private constructor to prevent new instances
     public Global() {}
     // Singleton pattern
     public static Global getInstance() {
